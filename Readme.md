@@ -1,4 +1,4 @@
-## This is the static web app version of CollabScience. To see the source code of the version submitted to the NASA Space Apps Challenge 2023 Hackathon, [go here](https://github.com/JakeYallop/CollabScience)
+## This is the static web app version of CollabScience. [See the source code of the version submitted to the NASA Space Apps Challenge 2023 Hackathon here](https://github.com/JakeYallop/CollabScience).
 
 # CollabScience
 
