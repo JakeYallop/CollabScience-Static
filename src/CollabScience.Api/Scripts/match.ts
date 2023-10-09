@@ -1,4 +1,4 @@
-import matchApi from "./matchApi.js";
+import { buildParametersFromProfile, getMatches } from "./matcher.js";
 import { addMatch, addViewed, getProfileInformation } from "./profile.js";
 
 const collabmatchContainer = document.querySelector(".collabmatch")!;
@@ -14,25 +14,11 @@ if (!profile) {
         "Could not find user profile. Matches may not be very good. Visit the profile page to set your preferences."
     );
 }
-matchApi
-    .matches(
-        {
-            alreadyViewed: profile?.viewed,
-            areasOfInterest: profile?.areasOfInterest,
-            expertise: profile?.expertise,
-            equipment: profile?.equipment,
-            alreadyMatched: profile?.matchedWith,
-        },
-        10
-    )
-    .then(response => {
-        return response.json();
-    })
-    .then(data => {
-        data.forEach(project => {
-            addCard(project.id, project.name, project.description, project.imageUrl);
-        });
-    });
+
+const matches = getMatches(buildParametersFromProfile(profile), 10);
+matches.forEach(project => {
+    addCard(project.id, project.name, project.description, project.imageUrl);
+});
 checkForNoMoreCards();
 initCards();
 
@@ -68,21 +54,12 @@ async function cardRemoved(isMatch: boolean, projectId: number) {
         }
     }
 
-    const promise = matchApi.match({
-        alreadyViewed: profile?.viewed,
-        areasOfInterest: profile?.areasOfInterest,
-        expertise: profile?.expertise,
-        equipment: profile?.equipment,
-        pendingMatches: pendingProjectIds,
-        alreadyMatched: profile?.matchedWith,
-    });
-    setTimeout(async () => {
+    setTimeout(() => {
         const removedCards = document.querySelectorAll(".collabmatch--card.removed") as NodeListOf<HTMLDivElement>;
         removedCards.forEach(card => card.remove());
         checkForNoMoreCards();
     }, 2000);
-    const response = await promise;
-    const data = await response.json();
+    const data = getMatches(buildParametersFromProfile(profile));
     if (data.length > 0) {
         const info = data[0];
         addCard(info.id, info.name, info.description, info.imageUrl);

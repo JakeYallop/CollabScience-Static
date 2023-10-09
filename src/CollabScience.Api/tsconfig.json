@@ -7,9 +7,14 @@
     "target": "ES2016",
     "module": "ES2015",
     "outDir": "wwwroot/js",
+
     /* Linting */
     "strict": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "moduleResolution": "NodeNext"
   },
   "exclude": ["node_modules", "wwwroot"]
 }

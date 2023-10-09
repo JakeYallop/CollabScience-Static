@@ -16,7 +16,7 @@ export interface Project {
     url: string;
     imageUrl: string;
     timeToHelp: string[];
-    commitment: string;
+    commitment: string[];
     expertise: string[];
     areasOfResearch: string[];
 }
