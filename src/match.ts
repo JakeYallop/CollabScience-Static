@@ -228,5 +228,5 @@ nope.addEventListener("click", nopeListener);
 love.addEventListener("click", loveListener);
 
 document.querySelector("#matches")!.addEventListener("click", () => {
-    window.location.assign("/matches/");
+    window.location.assign("matches/");
 });

@@ -400,5 +400,5 @@ yarn-error.log*
 **/keys/is-*.json
 **/tempkey.jwk
 
-**/js/*.js
-**/js/*.js.map
+**/*.js
+**/*.js.map

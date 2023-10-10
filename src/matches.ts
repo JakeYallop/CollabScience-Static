@@ -1,21 +1,23 @@
 import { getProfileInformation } from "./profile.js";
-import projectsApi from "./projectsApi.js";
+import projectsData from "./data.json";
 
 window.addEventListener("DOMContentLoaded", () => {
     const profile = getProfileInformation();
     if (!profile || !profile.matchedWith) {
         document.getElementById("no-profile-message")?.classList.add("shown");
     }
-    loadMatches(profile?.matchedWith ?? []);
+    loadMatches();
 });
 
-async function loadMatches(projectIds: number[]) {
-    const projectsResponse = await projectsApi.getProjects(projectIds);
-    const projects = await projectsResponse.json();
-    if (projects.length === 0) {
+function loadMatches() {
+    const profile = getProfileInformation();
+    const matches = Array.isArray(profile?.matchedWith) ? profile!.matchedWith : [];
+    const projects = projectsData.filter(x => matches.includes(x.Id));
+
+    if (matches.length === 0) {
         const noMatchesHtml = `
             <h4>No matches found.
-            <a href=/match>Go to the match page to find more matches.</a>  You can update your <a href="/profile/">profile here</a>
+            <a href=/match>Go to the match page to find more matches.</a>  You can update your <a href="/profile">profile here</a>
             </h4>
         `;
         document.getElementById("matches")!.innerHTML = noMatchesHtml;
@@ -36,9 +38,9 @@ ${projects
     .map(
         project => `
         <tr>
-        <td>${project.name}</td>
-        <td>${project.description}</td>
-        <td><a href="${project.url}" target="_blank" >Go to project page</a></td>
+        <td>${project.Name}</td>
+        <td>${project.Description}</td>
+        <td><a href="${project.Url}" target="_blank" >Go to project page</a></td>
         </tr>
         `
     )

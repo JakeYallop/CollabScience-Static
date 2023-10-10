@@ -1,4 +1,4 @@
-import projectsData from "../data.json";
+import projectsData from "./data.json";
 import { ProfileData } from "./profile.js";
 
 export interface MatchParameters {

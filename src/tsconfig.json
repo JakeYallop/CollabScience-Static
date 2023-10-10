@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "noImplicitAny": false,
+        "noEmitOnError": true,
+        "removeComments": false,
+        "sourceMap": true,
+        "target": "ES2016",
+        "module": "Node16",
+        "outDir": "website",
+
+        /* Linting */
+        "strict": true,
+        "noFallthroughCasesInSwitch": true,
+
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "moduleResolution": "Node16"
+    },
+    "exclude": ["node_modules", "wwwroot"]
+}
