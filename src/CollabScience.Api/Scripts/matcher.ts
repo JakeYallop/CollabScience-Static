@@ -1,5 +1,4 @@
 import projectsData from "../data.json";
-import { Project } from "./matchApi.js";
 import { ProfileData } from "./profile.js";
 
 export interface MatchParameters {
@@ -9,6 +8,18 @@ export interface MatchParameters {
     pendingMatches: number[];
     alreadyViewed: number[];
     alreadyMatched: number[];
+}
+
+export interface Project {
+    id: number;
+    name: string;
+    description: string;
+    url: string;
+    imageUrl: string;
+    timeToHelp: string[];
+    commitment: string[];
+    expertise: string[];
+    areasOfResearch: string[];
 }
 
 const AreasOfInterestWeight: number = 2;
