@@ -3,22 +3,19 @@
         "noImplicitAny": false,
         "noEmitOnError": true,
         "removeComments": false,
-
         "sourceMap": true,
-        "sourceRoot": ".",
-
         "target": "ES2016",
-        "module": "ESNext",
-        "outDir": "/js",
+        "outDir": "src/js",
 
         /* Linting */
         "strict": true,
         "noFallthroughCasesInSwitch": true,
 
+        "module": "ESNext",
+        "moduleResolution": "Node",
         "resolveJsonModule": true,
-        "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true,
-        "moduleResolution": "Bundler"
+        "esModuleInterop": true
     },
-    "exclude": ["js"]
+    "include": ["**/*.ts"],
+    "exclude": ["./src/js"]
 }
