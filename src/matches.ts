@@ -1,5 +1,5 @@
 import { getProfileInformation } from "./profile.js";
-import projectsData from "./data.json";
+import projectsData from "./data.json" assert { type: "json" };
 
 window.addEventListener("DOMContentLoaded", () => {
     const profile = getProfileInformation();

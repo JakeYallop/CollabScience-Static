@@ -402,3 +402,4 @@ yarn-error.log*
 
 **/*.js
 **/*.js.map
+**/website/js/data.json

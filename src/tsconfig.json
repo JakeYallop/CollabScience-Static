@@ -3,18 +3,22 @@
         "noImplicitAny": false,
         "noEmitOnError": true,
         "removeComments": false,
+
         "sourceMap": true,
+        "sourceRoot": ".",
+
         "target": "ES2016",
-        "module": "Node16",
-        "outDir": "website",
+        "module": "ESNext",
+        "outDir": "/js",
 
         /* Linting */
         "strict": true,
         "noFallthroughCasesInSwitch": true,
 
         "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
-        "moduleResolution": "Node16"
+        "moduleResolution": "Bundler"
     },
-    "exclude": ["node_modules", "wwwroot"]
+    "exclude": ["js"]
 }
