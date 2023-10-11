@@ -1,5 +1,7 @@
 ## This is the static web app version of CollabScience. [Go here to see the source code of the version submitted to the NASA Space Apps Challenge 2023 Hackathon](https://github.com/JakeYallop/CollabScience).
 
+See thed demo at https://collabscience.jyallop.dev/.
+
 # CollabScience
 
 CollabScience helps you find the science projects that matter to you, rather than spending all your time reviewing lists of open science projects you can now find a project to contribute to in minutes! What we innovated is  a 'Swipe & Match' feature, where users can swipe through projects and, upon a match, connect with those that align with their expertise and interests. 
